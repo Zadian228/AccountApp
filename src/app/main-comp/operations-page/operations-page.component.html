@@ -1,0 +1,113 @@
+<app-header></app-header>
+
+
+<div class="container">
+
+  <h3>Операции:</h3>
+
+  <form class="form-inline" [formGroup]="operationsForm" (ngSubmit)="onSubmit()">
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="name"
+             class="sr-only"
+      ></label>
+      <input type="text"
+             class="form-control"
+             placeholder="Название"
+             id="name"
+             formControlName="name"
+      >
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="cash"
+             class="sr-only"
+      ></label>
+      <input type="number"
+             class="form-control"
+             id="cash"
+             placeholder="Количество"
+             formControlName="cash"
+      >
+    </div>
+    <div class="form-group mx-sm-3 mb-2">
+      <label for="type"
+             class="sr-only"
+      >Тип</label>
+      <div class="form-group mx-sm-3 mb-2">
+        <select class="form-control" id="type" formControlName="type">
+          <option value='income'>Доход</option>
+          <option value='out'>Расход</option>
+        </select>
+      </div>
+      <label for="account"
+             class="sr-only"
+      ></label>
+      <div class="form-group mx-sm-3 mb-2">
+        <select class="form-control" id="account" formControlName="account">
+          <option [ngValue]="account"   *ngFor="let account of accounts">
+            {{ account.name }}
+          </option>
+        </select>
+      </div>
+      <div class="form-group mx-sm-3 mb-2">
+        <button type="submit" class="btn btn-primary"
+                [disabled]="operationsForm.invalid "
+        >Добавить операцию
+        </button>
+      </div>
+    </div>
+  </form>
+</div>
+
+<hr>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <ul class="list-group list-group-horizontal-xl">
+        <li class="list-group-item">Доходы</li>
+      </ul>
+    </div>
+    <div class="col">
+      <ul class="list-group list-group-horizontal-xl">
+        <li class="list-group-item">Расходы</li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<br>
+
+<div class="container">
+  <div class="row">
+    <div class="col">
+      <ul class="list-group list-group-horizontal-xl" *ngFor="let operationIncome of operationsIncome; let i = index">
+        <li class="list-group-item list-group-item-success">{{ operationIncome.name }}</li>
+        <li class="list-group-item list-group-item-success">{{ operationIncome.cash }} рублей</li>
+        <p class="p-padding">Счет:</p>
+        <li class="list-group-item list-group-item-success">{{ operationIncome.accounts }}</li>
+        <div class="media-body">
+          <button type="button" class="close" aria-label="Close"
+                  (click)="onDeleteOperationIncome(i)"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </ul>
+    </div>
+    <div class="col">
+      <ul class="list-group list-group-horizontal-xl" *ngFor="let operationExpense of operationsExpense; let i = index">
+        <li class="list-group-item list-group-item-danger">{{ operationExpense.name }}</li>
+        <li class="list-group-item list-group-item-danger">{{ operationExpense.cash }} рублей</li>
+        <p class="p-padding">Счет:</p>
+        <li class="list-group-item list-group-item-danger">{{ operationExpense.accounts }}</li>
+        <div class="media-body">
+          <button type="button" class="close" aria-label="Close"
+                  (click)="onDeleteOperationExpense(i)"
+          >
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+      </ul>
+    </div>
+  </div>
+</div>

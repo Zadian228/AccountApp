@@ -1,0 +1,17 @@
+.col {
+  text-align: center;
+}
+
+.greenalert {
+  color:#00cc00 ;
+}
+
+.redalert {
+  color: red;
+}
+
+h3 {
+  padding-top: 30px;
+  padding-left: 30px;
+  margin-bottom: 30px;
+}

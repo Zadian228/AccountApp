@@ -1,0 +1,24 @@
+<app-header></app-header>
+
+<div class="container">
+  <h3>Счета:</h3>
+  <ul class="list-unstyled">
+  <li class="media"
+      *ngFor=" let account of accounts; let i = index"  >
+    <img src="{{ account.imagePath }}"
+         class="align-self-start mr-3"
+         alt="{{ account.name }}">
+    <div class="media-body">
+      <button type="button" class="close" aria-label="Close"
+        (click)="onDeleteAccount(i)"
+      >
+        <span aria-hidden="true">&times;</span>
+      </button>
+      <h4 class="mt-0">{{ account.name }}</h4>
+      <p>{{ account.cash }} рублей</p>
+    </div>
+    <hr>
+  </ul>
+  <button type="button" class="btn btn-primary" routerLink="/accounts/new"
+  >Добавить счёт</button>
+</div>

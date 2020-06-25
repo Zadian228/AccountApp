@@ -1,0 +1,28 @@
+<br>
+<div class="container">
+  <form class="form-inline" [formGroup]="accountsForm" (ngSubmit)="onSubmit()">
+    <label class="sr-only" for="name">Счет</label>
+    <input type="text" class="form-control mb-2 mr-sm-2" id="name" placeholder="Название"
+    formControlName="name"
+    >
+
+    <label class="sr-only" for="cash">Рубли</label>
+    <div class="input-group mb-2 mr-sm-2">
+      <input type="number" class="form-control" id="cash" placeholder="Рубли"
+             formControlName="cash"  [hidden]="accountsForm"
+      >
+    </div>
+    <label class="my-1 mr-2" for="imagePath">Тип счета:</label>
+    <select class="custom-select my-1 mr-sm-2" id="imagePath"
+    formControlName="imagePath">
+      <option [value]="CardAndWallet" *ngFor="let CardAndWallet of CardAndWallets"
+      >{{ CardAndWallet | Card | Wallet }}</option>
+
+    </select>
+    <button class="btn btn-primary" type="submit"
+            [disabled]="accountsForm.invalid "
+
+    >Добавить Счет</button>
+  </form>
+</div>
+<hr>

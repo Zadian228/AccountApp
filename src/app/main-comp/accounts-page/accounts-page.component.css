@@ -1,0 +1,18 @@
+h3 {
+  padding-top: 30px;
+  padding-left: 30px;
+}
+
+.media {
+  padding-top: 30px;
+}
+
+img {
+  width: 90px;
+  height: 60px;
+}
+
+span {
+  float: right;
+}
+

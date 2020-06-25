@@ -1,0 +1,58 @@
+<app-header></app-header>
+
+
+
+<div class="container">
+  <div class="alert alert-danger" *ngIf="error">
+    <p> {{ error }}</p>
+  </div>
+  <h3>Войти:</h3>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="email">Ваш email</label>
+      <input type="email"
+             class="form-control"
+             id="email"
+             placeholder="Введите почту"
+             formControlName="email"
+             [ngClass]="{invalid: form.get('email').touched && form.get('email').invalid}"
+      >
+      <small id="emailHelp"
+             class="invalid-small"
+             *ngIf="form.get('email').touched && form.get('email').invalid"
+      >Поле email должно быть заполненно</small>
+
+
+    </div>
+    <div class="form-group"
+    >
+      <label for="password">Ваш пароль</label>
+      <input type="password"
+             class="form-control"
+             id="password"
+             placeholder="Введите пароль"
+             formControlName="password"
+             [ngClass]="{invalid: form.get('password').touched && form.get('password').invalid}"
+      >
+
+      <small id="passwordHelp"
+             class="invalid-small"
+             *ngIf="form.get('password').touched && form.get('password').invalid"
+      >Поле пароль должно быть заполненно</small>
+    </div>
+    <div class="leftFloat">
+      <button type="submit"
+              class="btn btn-primary"
+              [disabled]="!form.valid"
+      >Войти</button>
+    </div>
+    <div class="rightFloat">
+      <button type="button"
+              class="btn btn-primary"
+              (click)="onEnterData()"
+      >Ввести данные</button>
+    </div>
+  </form>
+</div>
+

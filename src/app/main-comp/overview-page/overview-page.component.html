@@ -1,0 +1,27 @@
+<app-header></app-header>
+
+
+
+<div class="container">
+
+  <h3>Обзор:</h3>
+
+  <div class="row"
+       *ngFor=" let overviews of overview">
+    <div class="col col-center">
+      <p>Баланс</p>
+      <p class="greenalert"
+      [ngClass]="{redalert: overviews.balance < 0}"
+      >{{ overviews.balance }}</p>
+    </div>
+    <div class="w-100"></div>
+    <div class="col">
+      <p>Доходы</p>
+      <p class="greenalert">{{ overviews.income }}</p>
+    </div>
+    <div class="col">
+      <p>Расходы</p>
+      <p class="redalert">{{ overviews.expense }}</p>
+    </div>
+  </div>
+</div>

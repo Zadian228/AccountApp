@@ -1,0 +1,42 @@
+<div class="container">
+
+    <ul class="nav nav-tabs justify-content-center">
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLink="/accounts"
+           routerLinkActive="active"
+           href="#">Счета</a>
+      </li>
+
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLink="/operations"
+           routerLinkActive="active"
+           href="#">Операции</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"
+           routerLink="/overview"
+           routerLinkActive="active"
+           href="#">Обзор</a>
+      </li>
+
+      <li class="nav-item"
+          *ngIf="!authService.isAuthenticated">
+        <a class="nav-link"
+           routerLink="/login"
+           href="#">Войти</a>
+      </li>
+
+      <li class="nav-item" *ngIf="authService.isAuthenticated">
+        <a class="nav-link"
+           routerLink="/login"
+           (click)="onResetAuth()"
+           href="#">Выйти</a>
+      </li>
+
+    </ul>
+</div>
+
+
+<router-outlet></router-outlet>

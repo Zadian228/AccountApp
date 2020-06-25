@@ -1,0 +1,20 @@
+h3 {
+  padding-top: 30px;
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+list-group-item {
+  margin-top: 10px;
+}
+
+.p-padding {
+  margin: 10px 10px;
+}
+
+
+.close {
+  float: right;
+  padding-top: 10px;
+  margin-right: 20px;
+}

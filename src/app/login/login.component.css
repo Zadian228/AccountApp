@@ -1,0 +1,26 @@
+h3 {
+  padding-top: 30px;
+  padding-left: 30px;
+  margin-bottom: 30px;
+}
+
+.container {
+
+}
+
+
+.invalid {
+  border: 1px solid red;
+}
+
+.invalid-small {
+  color:red;
+}
+
+.rightFloat {
+  float: right;
+}
+
+.leftFloat {
+  float: left;
+}
